@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
 import { 
-  SiPython, SiPytorch, SiTensorflow, SiOpenai, SiHuggingface,
+  SiPython, SiPytorch, SiTensorflow, SiOpenai, SiHuggingface, SiGooglegemini,
   SiReact, SiNextdotjs, SiTailwindcss, SiTypescript,
   SiNodedotjs, SiExpress, SiFastapi, SiMongodb, SiPostgresql,
-  SiDocker, SiVercel, SiGit,
+  SiDocker, SiVercel, SiGit, SiNetlify, SiGithub,
   SiFlutter, SiAndroidstudio, SiDart, SiFirebase
 } from 'react-icons/si'
-import { FaAws } from 'react-icons/fa'
+import { FaAws, FaBrain } from 'react-icons/fa'
 
 const skillCategories = [
   {
@@ -17,6 +17,8 @@ const skillCategories = [
       { name: 'TensorFlow', icon: SiTensorflow, color: '#FF6F00' },
       { name: 'OpenAI', icon: SiOpenai, color: '#412991' },
       { name: 'Hugging Face', icon: SiHuggingface, color: '#FFD21E' },
+      { name: 'Gemini API', icon: SiGooglegemini, color: '#8E75FF' },
+      { name: 'Groq', icon: FaBrain, color: '#F55036' },
     ]
   },
   {
@@ -44,7 +46,9 @@ const skillCategories = [
       { name: 'Docker', icon: SiDocker, color: '#2496ED' },
       { name: 'AWS', icon: FaAws, color: '#FFFFFF' },
       { name: 'Vercel', icon: SiVercel, color: '#FFFFFF' },
+      { name: 'Netlify', icon: SiNetlify, color: '#00C7B7' },
       { name: 'Git', icon: SiGit, color: '#F05032' },
+      { name: 'GitHub', icon: SiGithub, color: '#FFFFFF' },
     ]
   },
   {

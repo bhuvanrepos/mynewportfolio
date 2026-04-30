@@ -4,6 +4,14 @@ import { FiExternalLink, FiAward } from 'react-icons/fi'
 const certifications = [
   {
     id: 1,
+    title: 'Google Cloud Skills Boost - Arcade 2025',
+    description: 'Application Programming Interfaces (API), Docker and +5 skills. Issued Dec 2025',
+    image: '/gcp.png',
+    link: 'https://www.credly.com/users/bhuvan-mandala.e59f75c4/badges',
+    color: 'from-yellow-500/20 to-transparent'
+  },
+  {
+    id: 2,
     title: 'Microsoft Learn',
     description: 'Azure Networking, VNets, Load Balancers',
     image: '/ml-logo.png',
@@ -11,7 +19,7 @@ const certifications = [
     color: 'from-blue-500/20 to-transparent'
   },
   {
-    id: 2,
+    id: 3,
     title: 'Kaggle',
     description: 'Programming & Datasets',
     image: '/kaggle.png',

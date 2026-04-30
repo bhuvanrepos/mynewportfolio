@@ -87,11 +87,11 @@ const Projects = () => {
             transition={{ duration: 0.6, delay: idx * 0.1 }}
             className="glass-card group overflow-hidden flex flex-col"
           >
-            <div className="relative aspect-video overflow-hidden border-b border-white/10 bg-white/5">
+            <div className="relative aspect-video overflow-hidden border-b border-white/10 bg-[#d5d7d8]">
               <img 
                 src={project.image} 
                 alt={project.title} 
-                className={`w-full h-full ${project.imgClass || 'object-cover'} group-hover:scale-105 transition-transform duration-500`}
+                className={`w-full h-full ${project.id === 1 ? 'object-cover scale-[1.15]' : (project.imgClass || 'object-cover')} group-hover:scale-[1.25] transition-transform duration-500`}
               />
               <div className="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors duration-500"></div>
             </div>

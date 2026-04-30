@@ -20,6 +20,7 @@ const achievementData = {
     ],
     videoUrl: 'https://www.loom.com/embed/b3661649261b4e058c0f5a6fab89acb6',
     gallery: [
+      '/aidelhicertificate.jpeg',
       '/aig1.jpeg',
       '/aig2.jpeg',
       '/aig3.jpeg',
@@ -34,6 +35,9 @@ const achievementData = {
     heroImage: '/verbanner.png',
     about: "Emerged as a top winner out of 163 highly competitive participants. This achievement reflects our team's exceptional ability to innovate, adapt, and build high-quality solutions under pressure using modern web technologies.",
     solution: "A Next.js & Firebase community platform that redefines the forum. We use 'Creative Misuse' to transform standard threads into Job Boards, Collaborative Stories, and Product Roadmaps—all in one app.",
+    repos: [
+      { name: 'Git Repo', url: 'https://github.com/bhuvanm1705/Un-Forum_vercel_devpost_hackathon' }
+    ],
     videoUrl: 'https://player.vimeo.com/video/1150677414',
     gallery: [
       '/v1.jpg',
@@ -51,9 +55,13 @@ const achievementData = {
     heroImage: '/agbanner.jpeg',
     about: 'Participated in the AGENTATHON, contributing to a Guinness World Record for participation. Competing alongside more than 3,500 participants across 600 teams, the intensive event focused exclusively on conceptualizing, designing, and building advanced AI Agents.',
     solution: 'A comprehensive career guidance platform featuring course tracking, AI chat, and gamified learning.',
+    repos: [
+      { name: 'Git Repo', url: 'https://github.com/bhuvanm1705/careerspark2k25.2' }
+    ],
     videoUrl: 'https://player.vimeo.com/video/1150677414',
     gallery: [
       '/ag1.jpeg',
+      '/agparticipate.jpg',
       '/ag2.jpeg',
       '/ag33.jpeg',
       '/ag4.jpeg'
@@ -69,7 +77,7 @@ const achievementData = {
     about: 'Solved complex Challenge Labs—scenarios without step-by-step instructions—that simulate real-world cloud engineering tasks. Mastered specific enterprise tools such as BigQuery for data analytics, Kubernetes for container orchestration, and Generative AI with Vertex AI.',
     solutionTitle: 'My Learning',
     solution: 'Acquired and practically applied advanced Google Cloud Skills including VPC, Kubernetes, Big Query, and other core cloud infrastructure components.',
-    certificationUrl: 'https://www.credly.com/users/bhuvan-mandala.e59f75c4/badges',
+    certificationUrl: 'https://www.skills.google/public_profiles/219444c7-f0b9-4af3-a8c3-5effcb55cebd',
     gallery: [
       '/ar1.jpeg'
     ],
@@ -88,6 +96,8 @@ const achievementData = {
     videoUrl: '/dmsv.mp4',
     videoTitle: 'Clip of Explanation',
     gallery: [
+      '/dmsc1.jpg',
+      '/dmsc2.jpg',
       '/d1.jpeg',
       '/d2.jpeg',
       '/d3.jpeg',
@@ -213,7 +223,11 @@ const AchievementDetail = () => {
                 >
                   <FiAward className="text-5xl text-accent mb-4 group-hover:scale-110 transition-transform" />
                   <span className="text-xl font-bold text-white mb-2">View Verified Badges</span>
-                  <span className="text-sm text-gray-400 group-hover:text-cyan-300 transition-colors">credly.com/users/bhuvan-mandala</span>
+                  <span className="text-sm text-gray-400 group-hover:text-cyan-300 transition-colors break-all">
+                    {data.certificationUrl.includes('skills.google') 
+                      ? 'skills.google/public_profiles/...' 
+                      : 'credly.com/users/bhuvan-mandala'}
+                  </span>
                 </a>
               </>
             ) : null}
@@ -223,23 +237,30 @@ const AchievementDetail = () => {
         {/* Image Gallery */}
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="mt-20">
           <h3 className="text-2xl font-bold mb-8 text-white text-center">{data.galleryTitle || 'Event Gallery'}</h3>
-          <div className={`grid ${data.gallery.length === 1 ? 'grid-cols-1 max-w-2xl mx-auto' : data.gallery.length === 7 ? 'grid-cols-3' : 'grid-cols-2'} gap-4 sm:gap-6`}>
+          <div className={`grid ${data.gallery.length === 1 ? 'grid-cols-1 max-w-2xl mx-auto' : data.gallery.length >= 7 ? 'grid-cols-3' : 'grid-cols-2'} gap-4 sm:gap-6`}>
             {data.gallery.map((img, idx) => {
               const isD7 = img.includes('d7');
-              const aspectClass = data.gallery.length === 1 ? 'aspect-[4/3]' : data.gallery.length === 7 ? (isD7 ? 'aspect-video' : 'aspect-[3/4]') : 'aspect-video';
+              const isCert = img.includes('certificate') || img.includes('dmsc') || img.includes('participate') || img.includes('ag1');
+              const isTransformer = img.includes('ag33');
+              
+              let aspectClass = 'aspect-video';
+              if (isCert) aspectClass = 'aspect-auto h-fit self-center';
+              else if (data.gallery.length === 1) aspectClass = 'aspect-[4/3]';
+              else if (data.gallery.length >= 7 && !isD7) aspectClass = 'aspect-[3/4]';
+              else if (isTransformer) aspectClass = 'aspect-[3/4] h-full';
               
               return (
                 <div 
                   key={idx} 
-                  className={`relative ${aspectClass} ${isD7 ? 'col-span-full' : ''} rounded-xl overflow-hidden cursor-pointer group glass-card border border-white/10`}
+                  className={`relative ${aspectClass} ${isD7 ? 'col-span-full' : ''} ${isTransformer ? 'row-span-2' : ''} rounded-xl overflow-hidden cursor-pointer group glass-card border border-white/10`}
                   onClick={() => setSelectedImg(img)}
                 >
                   <img 
                     src={img} 
                     alt={`Gallery ${idx + 1}`} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 bg-[#0a0a0a]"
+                    className={`w-full ${isCert ? 'h-auto object-cover' : 'h-full object-cover'} group-hover:scale-105 transition-transform duration-700 bg-[#0a0a0a]`}
                   />
-                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-300"></div>
+                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300"></div>
                 </div>
               );
             })}
