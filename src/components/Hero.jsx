@@ -32,9 +32,26 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="space-y-6"
         >
-          {/* Mobile Profile Image */}
-          <div className="w-32 h-32 rounded-full overflow-hidden border-2 border-cyan-400 mb-8 lg:hidden shadow-[0_0_15px_rgba(34,211,238,0.3)] mx-auto sm:mx-0">
-            <img src="/first_img.jpeg" alt="Mandala Bhuvan" className="w-full h-full object-cover object-top" />
+          {/* Premium Mobile Profile Image */}
+          <div className="relative w-full max-w-[260px] sm:max-w-[300px] aspect-[4/5] mx-auto mb-10 lg:hidden group">
+            {/* Animated glowing backdrop */}
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
+            
+            {/* Image container */}
+            <div className="relative w-full h-full rounded-3xl overflow-hidden border border-white/10 bg-dark">
+              {/* Bottom gradient fade for cinematic look */}
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-dark via-dark/50 to-transparent z-10"></div>
+              
+              <img 
+                src="/first_img.jpeg" 
+                alt="Mandala Bhuvan" 
+                className="w-full h-full object-cover object-top" 
+              />
+            </div>
+            
+            {/* Cyberpunk accent lines */}
+            <div className="absolute -left-3 -top-3 w-8 h-8 border-t-2 border-l-2 border-cyan-400 rounded-tl-xl z-20 opacity-70"></div>
+            <div className="absolute -right-3 -bottom-3 w-8 h-8 border-b-2 border-r-2 border-blue-500 rounded-br-xl z-20 opacity-70"></div>
           </div>
 
           <div className="space-y-4 text-center sm:text-left">
