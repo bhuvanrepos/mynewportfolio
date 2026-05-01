@@ -97,7 +97,19 @@ const Achievements = () => {
                   <span className="w-1 h-1 bg-gray-600 rounded-full"></span>
                   <span>{achievement.org}</span>
                 </div>
-                <div className="mt-4 flex items-center text-secondary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                {/* Mobile View Details - Scroll Triggered */}
+                <motion.div 
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ margin: "-25% 0px -25% 0px", once: false }}
+                  transition={{ duration: 0.4 }}
+                  className="mt-4 flex items-center text-secondary text-sm font-medium md:hidden"
+                >
+                  View Details <FiArrowRight className="ml-1" />
+                </motion.div>
+
+                {/* Desktop View Details - Hover Triggered */}
+                <div className="mt-4 hidden md:flex items-center text-secondary text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-2">
                   View Details <FiArrowRight className="ml-1" />
                 </div>
               </div>
