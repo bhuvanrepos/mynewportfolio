@@ -68,11 +68,24 @@ const Resume = () => {
               viewport={{ once: true }}
               className="relative aspect-[1/1.4] w-full max-w-sm rounded-lg overflow-hidden shadow-2xl border border-white/20 bg-white/10"
             >
-              <iframe 
-                src="/resume.pdf#view=FitH" 
-                title="Resume Preview" 
-                className="w-full h-full border-none"
-              />
+              <object 
+                data="/resume.pdf#view=FitH" 
+                type="application/pdf" 
+                className="w-full h-full border-none bg-white"
+              >
+                <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-[#0a0a0a]">
+                  <FiDownload size={40} className="text-gray-500 mb-4" />
+                  <p className="text-gray-300 text-sm mb-4">Your mobile browser doesn't support inline PDF previews.</p>
+                  <a 
+                    href="/resume.pdf" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg transition-colors text-sm"
+                  >
+                    Open PDF Document
+                  </a>
+                </div>
+              </object>
             </motion.div>
           </div>
           
