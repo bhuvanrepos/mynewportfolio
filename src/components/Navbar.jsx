@@ -61,7 +61,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 h-16 flex items-center justify-between">
         <Link to="/" className="text-2xl font-heading font-bold text-white flex items-center gap-2">
-          <span className="text-primary">MB</span>
+          <img src="/mb-favicon.svg" alt="MB Logo" className="h-10 w-auto hover:scale-105 transition-transform" />
         </Link>
 
         {/* Desktop Nav */}
